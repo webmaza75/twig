@@ -1,6 +1,10 @@
-    <div class="thumbnail"> <!-- Данные для единицы товара -->
-        <img class="img-thumbnail" src="{{ item.url }}">
-        <h4>{{ item.name }}</h4>
-        <p>{{ item.category }}</p>
-        <p>{{ item.cost }}</p>
-    </div>
+{# Карточка товара #}
+{% import 'tags.twig' as lib %}
+<div class=""> <!-- Данные для единицы товара -->
+    <img class="img-thumbnail" src="{{ item.url }}">
+    <p><strong>Описание:</strong> {{ item.description }}</p>
+    <p><strong>Категория:</strong> {{ item.category }}</p>
+    <p><strong>Дата поступления:</strong> {{ item.date | date('d.m.Y') }}г.</p>
+    <p><strong>Цена:</strong> {{ item.cost }}</p>
+    <p>{{ lib.taglist(item.tags) }}</p>
+</div>
