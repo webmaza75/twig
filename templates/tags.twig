@@ -4,10 +4,10 @@
     {% for tag in tags %}
         {% for key, word in tag %}
             {% if not loop.last %}
-            <a href="/?page={{ key }}">{{ word }}</a>,
-                {% else %}
-                    <a href="/?page={{ key }}">{{ word }}</a>
-                {% endif %}
+                <a href="/?page={{ key }}">{{ word }}</a>,
+            {% else %}
+                <a href="/?page={{ key }}">{{ word }}</a>
+            {% endif %}
         {% endfor %}
     {% endfor %}
 </p>
