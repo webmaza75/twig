@@ -5,17 +5,42 @@
  */
 class Item
 {
+    public $id;
     public $name;
+    public $description;
     public $category;
+    public $delivDate;
     public $cost;
     public $url;
 
-    public function __construct($name, $category, $cost, $url)
+    public $tags;
+
+    public function __construct($id, $name, $description, $category, $delivDate, $cost, $url, $tags = [])
     {
+        $this->id = $id;
         $this->setName($name);
+        $this->setDescription($description);
         $this->setCategory($category);
+        $this->setDelivDate($delivDate);
         $this->setCost($cost);
         $this->setUrl($url);
+        $this->setTags($tags);
+    }
+
+    public function getId() {
+        return $this->id;
+    }
+    public function getTags()
+    {
+        return $this->tags;
+    }
+    public function setTags($tags)
+    {
+        if (!empty($tags)) {
+            foreach ($tags as $key => $tag) {
+                $this->tags[$key] = $tag;
+            }
+        }
     }
 
     public function getName()
@@ -25,6 +50,15 @@ class Item
     public function setName($name)
     {
         $this->name = $name;
+    }
+
+    public function getDescription()
+    {
+        return $this->description;
+    }
+    public function setDescription($description)
+    {
+        $this->description = $description;
     }
 
     public function setCategory($category)
@@ -44,6 +78,15 @@ class Item
     public function getCost()
     {
         return $this->cost;
+    }
+
+    public function getDelivDate()
+    {
+        return $this->delivDate;
+    }
+    public function setDelivDate($delivDate)
+    {
+        $this->delivDate = $delivDate;
     }
 
     public function setUrl($url)
