@@ -1,0 +1,14 @@
+{# Макрос вывода ссылок тегов в строку через запятую из массива #}
+{% macro taglist(tags) %}
+<p>
+    {% for tag in tags %}
+        {% for key, word in tag %}
+            {% if not loop.last %}
+            <a href="/?page={{ key }}">{{ word }}</a>,
+                {% else %}
+                    <a href="/?page={{ key }}">{{ word }}</a>
+                {% endif %}
+        {% endfor %}
+    {% endfor %}
+</p>
+{% endmacro %}
