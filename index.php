@@ -4,6 +4,7 @@ require __DIR__ . '/vendor/autoload.php';
 Twig_Autoloader::register();
 require __DIR__ . '/src/Item.php';
 require __DIR__ . '/src/functions.php'; // подключение вспомогательных функций
+require __DIR__ . '/classes/MyExtension.php'; // подключение класса расширений
 
 $loader = new Twig_Loader_Filesystem([
     __DIR__ . '/layouts', // основные шаблоны
@@ -13,6 +14,9 @@ $loader = new Twig_Loader_Filesystem([
 $twig = new Twig_Environment($loader, [
     'cache' => false, // кэш отключен
 ]);
+$twig->addExtension(new MyExtension());
+
+
 /**
  * Массив с данными для шаблона (потом будут браться либо из БД, либо из файла .php с return[массив данных])
  */
