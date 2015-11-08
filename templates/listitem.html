@@ -1,11 +1,14 @@
 {# Карточка товара для списка товаров #}
 {% import 'tags.twig' as lib %}
-<div class="thumbnail"> <!-- Данные для единицы товара -->
+<div class="thumbnail{% if item is recommended %} recommended {% endif %}" > <!-- Данные для единицы товара -->
     <img class="img-thumbnail" src="{{ item.url }}">
     <h4><a href="/?page=one&id={{ item.id }}">{{ item.name | upper}}</a></h4>
     <p>{{ item.description | slice(0, 50)}}...</p>
-    <p>Категория: <strong>{{ item.category }}</strong></p>
-    <p>Дата поступления: {{ item.date | date('Y') }}г.</p>
-    <p>Цена: <strong>{{ item.cost }}</strong></p>
-    <p>{{ lib.taglist(item.tags) }}</p>
+    <p><strong>Категория:</strong> {{ item.category }}</p>
+    <p><strong>Дата поступления:</strong> {{ item.date | date('Y') }}г.</p>
+    <p><strong>Цена:</strong> <span class="price">{{ item.cost }} &#8381;
+            ({{ item.cost | indollar | raw }} / {{ item.cost | ineuro | raw }} )
+        </span>
+    </p>
+    <p>{% include 'tagslist.html' %}</p>
 </div>
