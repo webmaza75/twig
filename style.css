@@ -1,0 +1,42 @@
+footer {
+    background-color: #eee;
+}
+.price {
+    text-align: right;
+    color: #000;
+}
+.price-small {
+    color: #777;
+    font-size: 0.89em;
+}
+h4 {
+    margin: 20px 0;
+}
+div.with-b-border {
+    padding-bottom: 20px;
+    border-bottom: 1px solid lightgrey;
+}
+img.img-thumbnail {
+    margin-bottom: 20px;
+}
+.recommended {
+    position: relative;
+    overflow: hidden;
+}
+.recommended::after {
+    position: absolute;
+    top: 30px;
+    left: -45px;
+    content: 'Рекомендуем';
+    display: table;
+    background-color: rgba(222, 255, 235, 0.85);
+    z-index: 5;
+    transform: rotate(-45deg);
+    padding: 5px 40px;
+    font-size: 18px;
+    color: #0c8b41;
+    border-top: 1px solid #00741e;
+    border-bottom: 1px solid #00741e;
+
+
+}
