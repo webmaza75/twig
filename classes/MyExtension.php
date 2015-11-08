@@ -23,17 +23,31 @@ class MyExtension extends Twig_Extension {
         return [
             new Twig_SimpleFilter(
                 'ineuro', function($cost) {
-                return ($cost / 64.62); }
+                return '<span class="price-small">' . round($cost / 69.41, 2) . ' &euro;</span>'; }
             ),
             new Twig_SimpleFilter(
                 'indollar', function($cost) {
-                return ($cost / 69.41); }
+                return '<span class="price-small">' . round($cost / 64.62, 2) . ' $</span>'; }
             ),
         ];
     }
-/*
-    public function getFilters() {
 
+    public function getFunctions() {
+        return [
+            new Twig_SimpleFunction('add_goods', function($tag_id) {
+                return findItemsByTag($tag_id);
+            }
+            ),
+        ];
     }
-*/
+
+    public function getTests() {
+        return [
+            new Twig_SimpleTest('recommended', function($item) {
+                return $item->popular >=4;
+            }
+            ),
+        ];
+    }
+
 }
