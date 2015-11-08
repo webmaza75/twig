@@ -1,8 +1,12 @@
 {% extends 'single.html' %}
 {% block heading %} {{ item.name }} {% endblock heading %}
 {% block content %}
-        <div class="col-xs-12 col-md-offset-1 col-md-8 col-lg-offset-1 col-lg-8">
-            <!-- вывод одного товара-->
-            {% include 'item.html' %} <!-- подключаем шаблон для вывода единицы товара -->
-        </div>
+
+        <!-- вывод одного товара-->
+        {% include 'item.html' %} <!-- подключаем шаблон для вывода единицы товара -->
+
+        <h3>Обратите внимание еще на эти товары:</h3>
+        <!-- подключаем шаблон для вывода блока дополнительных товаров по тегу -->
+        {% include 'goods_addition.html' %} <!-- подключаем шаблон для вывода единицы товара -->
+
 {% endblock %}
