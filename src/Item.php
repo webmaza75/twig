@@ -12,10 +12,11 @@ class Item
     public $delivDate;
     public $cost;
     public $url;
+    public $popular;
 
     public $tags;
 
-    public function __construct($id, $name, $description, $category, $delivDate, $cost, $url, $tags = [])
+    public function __construct($id, $name, $description, $category, $delivDate, $cost, $url, $popular, $tags = [])
     {
         $this->id = $id;
         $this->setName($name);
@@ -24,6 +25,7 @@ class Item
         $this->setDelivDate($delivDate);
         $this->setCost($cost);
         $this->setUrl($url);
+        $this->setPopular($popular);
         $this->setTags($tags);
     }
 
@@ -96,6 +98,14 @@ class Item
     public function getUrl()
     {
         return $this->url;
+    }
+    public function setPopular($popular)
+    {
+        $this->popular = $popular;
+    }
+    public function getPopular()
+    {
+        return $this->popular;
     }
 
     public function __isset($property)
