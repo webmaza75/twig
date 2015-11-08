@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
-    <title>Интернет-магазин | {% block title %}Главная{% endblock %}</title>
+    <link rel="stylesheet" href="/style.css">
+    <title>{% block title %}{{config.title}}{% endblock %}</title>
 </head>
 <body>
     <header>
@@ -67,7 +68,17 @@
 
     </div>
     </main>
-    <footer>&copy; 2015</footer>
+    <footer>
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 col-md-offset-2 col-md-6 col-lg-offset-2 col-lg-6">
+                    <h4>Наши контакты</h4>
+                    <p><strong>{{ config.contacts | raw }}</strong></p>
+                </div>
+                <div class="col-xs-12 col-md-2 col-lg-2">&copy; 2015</div>
+            </div>
+        </div>
+    </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
